@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>乐球直播 · 日常观赛指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9d9 0%, #fbd7b5 40%, #f8c9a0 100%);
+            min-height: 100vh;
+            color: #2d2a24;
+            line-height: 1.6;
+            padding: 20px 16px;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ------ 顶部导航 ------ */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 245, 235, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 12px 20px;
+            border-radius: 60px;
+            box-shadow: 0 4px 10px rgba(150, 90, 40, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .logo-area {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            color: #824a1e;
+            background: linear-gradient(135deg, #b0713a, #8f5a2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5f3f22;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #c57d41;
+            color: #4e321b;
+        }
+
+        /* ------ hero 区域（卡片式） ------ */
+        .hero-card {
+            background: #ffffffec;
+            backdrop-filter: blur(4px);
+            border-radius: 36px;
+            padding: 40px 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 12px 28px -8px rgba(140, 80, 30, 0.12);
+            border: 1px solid rgba(255, 220, 188, 0.5);
+        }
+
+        .hero-card h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 1.25;
+            color: #3e2b1a;
+            margin-bottom: 18px;
+        }
+
+        .hero-card h1 small {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #8c6d4f;
+            display: block;
+            margin-top: 6px;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: #3f3429;
+            max-width: 680px;
+        }
+
+        .hero-text p {
+            margin-bottom: 14px;
+        }
+
+        /* ------ 三模块卡片网格 ------ */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .scene-card {
+            background: #fffaf5;
+            border-radius: 28px;
+            padding: 28px 22px 24px;
+            box-shadow: 0 6px 18px rgba(120, 70, 30, 0.06);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid rgba(230, 190, 155, 0.35);
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(140, 80, 30, 0.1);
+        }
+
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #7b4b22;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scene-card h3 span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #da9f6b;
+            margin-right: 4px;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #3e342b;
+            margin-bottom: 8px;
+        }
+
+        .scene-card .light-meta {
+            font-size: 0.85rem;
+            color: #7c6a58;
+            background: #f1e4d8;
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 40px;
+            margin-top: 8px;
+        }
+
+        /* ------ 常见说明/FAQ 摘要 ------ */
+        .faq-block {
+            background: #fcf6ef;
+            border-radius: 28px;
+            padding: 28px 30px 30px;
+            margin-bottom: 32px;
+            border: 1px solid #eedacb;
+            box-shadow: inset 0 0 0 1px #fff9f2, 0 6px 12px rgba(100, 60, 20, 0.04);
+        }
+
+        .faq-block h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #5a3e26;
+            margin-bottom: 20px;
+            border-left: 5px solid #bf844d;
+            padding-left: 14px;
+        }
+
+        .faq-item {
+            margin-bottom: 18px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #6b4628;
+            margin-bottom: 3px;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #3f352b;
+            margin-left: 6px;
+        }
+
+        .faq-item a {
+            color: #9e6a38;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #dbb18a;
+            font-weight: 500;
+        }
+
+        .faq-item a:hover {
+            color: #6a421f;
+            text-decoration-color: #be7e44;
+        }
+
+        /* ------ 底部引用/链接区 ------ */
+        .footer-note {
+            text-align: center;
+            padding: 20px 10px 10px;
+            font-size: 0.9rem;
+            color: #67533f;
+            border-top: 1px solid #e0ccba;
+            margin-top: 8px;
+        }
+
+        .footer-note a {
+            color: #8c5f32;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            color: #4f321d;
+        }
+
+        /* ------ 响应式细节 ------ */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px 10px;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 14px 16px;
+                border-radius: 40px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 18px;
+                font-size: 0.9rem;
+            }
+
+            .hero-card {
+                padding: 28px 18px;
+                border-radius: 28px;
+            }
+
+            .hero-card h1 {
+                font-size: 1.7rem;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .faq-block {
+                padding: 22px 16px;
+            }
+        }
+
+        @media (min-width: 880px) {
+            .hero-card {
+                padding: 50px 44px;
+            }
+
+            .hero-card h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">◉ 乐球指南</div>
+        <div class="nav-links">
+            <a href="#daily">日常场景</a>
+            <a href="#faq">常见疑问</a>
+            <a href="#about">延伸阅读</a>
+        </div>
+    </nav>
+
+    <!-- hero 卡片：从日常查询切入 -->
+    <div class="hero-card">
+        <h1>
+            看球，本该更轻松
+            <small>从查询到对照，再到延伸阅读</small>
+        </h1>
+        <div class="hero-text">
+            <p>
+                无论是下班后想快速找到一场焦点战的回放，还是周末约朋友一起看比赛前先查查赛程——
+                <a href="https://ssl-leqiuzhibo.com" style="color:#a86f38; font-weight:500; text-decoration:underline; text-underline-offset:3px;">乐球直播</a>
+                总能提供一种踏实的观赛路径。不需要反复切换页面，也不用在信息流里翻找。
+            </p>
+            <p>
+                很多球友习惯在赛前先看看近期的对战数据、球员状态，甚至对比不同平台的解说风格。
+                这种“查一下、对照着看”的节奏，恰好是日常观赛的一部分。本页整理了三种常见使用场景，
+                以及一些你可能遇到过的小疑问，希望能让每一次打开都更顺手。
+            </p>
+        </div>
+    </div>
+
+    <!-- 三个场景模块（日常查询·对照·延伸阅读） -->
+    <div class="scene-grid" id="daily">
+        <div class="scene-card">
+            <h3><span></span> 快速查询</h3>
+            <p>赛前几分钟才想起看直播？直接搜球队或赛事关键词，从赛程到实时比分，几步就能定位。</p>
+            <p>很多用户会先在这里确认开球时间、场地信息，再决定用哪种方式观看。</p>
+            <span class="light-meta">常用动作：关键词检索 · 赛历筛选</span>
+        </div>
+        <div class="scene-card">
+            <h3><span></span> 对照参考</h3>
+            <p>同一场比赛，不同视角的回放、战术分析片段、赛后数据——放在一起对照看，理解更深一层。</p>
+            <p>不少球迷习惯保留一个窗口用于快速切换，方便比对球员跑位或判罚细节。</p>
+            <span class="light-meta">常见组合：直播 + 数据面板</span>
+        </div>
+        <div class="scene-card">
+            <h3><span></span> 延伸阅读</h3>
+            <p>比赛之外的深度内容同样吸引人：赛季回顾、球队历史、转会传闻、战术图解……</p>
+            <p>在看完直播后顺着相关推荐翻几篇长文，已经成为许多人的固定“赛后节目”。</p>
+            <span class="light-meta">推荐内容：专栏 · 高光混剪</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-block" id="faq">
+        <h2>日常使用中可能想了解的</h2>
+
+        <div class="faq-item">
+            <strong>▎ 是否需要注册账号？</strong>
+            <p>
+                大多数基础查询和直播入口不需要额外注册。部分个性化功能（如收藏赛事、订阅提醒）
+                可自愿选择关联，不强制。使用 <a href="https://ssl-leqiuzhibo.com">乐球直播</a>
+                时，根据页面指引操作即可，通常无需填写过多信息。
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <strong>▎ 移动端和电脑端体验有差别吗？</strong>
+            <p>
+                主要功能在手机浏览器和平板、电脑上都做了适配。直播列表、搜索框、分类标签布局会
+                跟着屏幕自动调整。如果你习惯用大屏对照数据，推荐在电脑上打开；如果只是快速扫一眼
+                赛果，手机端完全够用。
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <strong>▎ 内容更新频率大概如何？</strong>
+            <p>
+                赛事信息、直播链接随比赛周期实时更新。赛季中基本每天都有变化，休赛期则以专题、
+                回顾和资讯为主。如果你关注的联赛比较小众，可以试试直接搜索球队或赛事缩写。
+            </p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 0;">
+            <strong>▎ 遇到打不开或卡顿怎么办？</strong>
+            <p>
+                可以先检查网络环境，或者稍等几分钟刷新页面。部分直播源可能因地区或版权原因
+                有所波动，这时不妨试试切换线路或查看回放。页面内通常会有备用入口提示。
+            </p>
+        </div>
+    </div>
+
+    <!-- 底部：延伸阅读/简洁版说明 -->
+    <div class="footer-note" id="about">
+        <p>
+            <span style="background: #f0dfcf; padding: 4px 14px; border-radius: 40px; display: inline-block; margin-bottom: 8px;">
+                ⚽ 从查询到对照，再到延伸阅读 —— 一个页面，三种节奏
+            </span>
+        </p>
+        <p style="margin-top: 10px;">
+            如果你正在找某个联赛的近期赛程，或者想回顾某场经典对决的细节，
+            <a href="https://ssl-leqiuzhibo.com">乐球直播</a>
+            一直在这里。不必额外下载，打开浏览器就能继续你的观赛日常。
+        </p>
+        <p style="margin-top: 14px; font-size:0.8rem; color:#876e57;">
+            · 内容仅供参考，实际功能以页面为准 · 祝你观赛愉快 ·
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
